@@ -3,7 +3,7 @@ module.exports = {
         return [
             {
                 source: '/it-officer-platform',
-                destination: 'https://www.notion.so/ianlangleben/MSS-IT-Officer-Platform-Ian-Langleben-32cff4408fbb46aa96b66bac07b2d87f',
+                destination: 'https://www.notion.so/ianlangleben/MSS-IT-Officer-Platform-Ian-Langleben-99b48d024730485c88f42375f569b9dd',
                 permanent: true,
             },
         ];
