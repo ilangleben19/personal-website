@@ -24,6 +24,9 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
             }
     );
     const page = await browser.newPage();
-    await page.goto(embedUrl);
-    res.send(await page.content());
+    await page.goto(embedUrl); // Load page
+    await page.click('div.manual-play__button-play__area-effect'); // Click "see the board"
+    await page.waitForSelector('#svgContainer > svg'); // Wait for the SVG to load
+    const svg = await page.evaluate(() => document.querySelector('#svgContainer > svg').outerHTML);
+    res.send(svg);
 };
