@@ -1,7 +1,5 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import Head from 'next/head';
-
-import io from 'socket.io-client';
 
 import { Button, CircularProgress, Container, Link, Snackbar, TextField, Typography } from '@material-ui/core';
 import MuiAlert from '@material-ui/lab/Alert';
@@ -68,14 +66,13 @@ export default function MiroExport() {
         const embedUrl = matches[0];
 
         addStep('Connecting to server...');
-        fetch('/api/med/miro-export').finally(() => {
-            const socket = io({ query: { 'app': 'miro-export' } });
-            socket.on('hello', url => console.log(`Returned url is ${url}`));
-            socket.on('test', text => console.log(text));
-            socket.on('connect', () => {
-                socket.emit('fetch', embedUrl);
-            });
-        });
+        fetch('/api/med/miro-export',
+            {
+                body: JSON.stringify({ embedUrl }),
+                method: 'POST',
+            }
+        )
+            .then(res => res.text()).then(text => console.log(text));
     };
 
     return (
@@ -125,13 +122,7 @@ export default function MiroExport() {
                 </div>
 
                 <br /><br />
-                {(loading && steps.length) ? (
-                    <Typography component="div" variant="body1">
-                        <ul>
-                            {steps.map((step, i) => <li key={i}>{step}</li>)}
-                        </ul>
-                    </Typography>
-                ) : <></>}
+                {loading ? <Typography variant="body1">Processing...</Typography> : <></>}
             </Container>
         </>
     );
