@@ -69,7 +69,7 @@ export default function MiroExport() {
 
         addStep('Connecting to server...');
         fetch('/api/med/miro-export').finally(() => {
-            const socket = io();
+            const socket = io({ query: { 'app': 'miro-export' } });
             socket.on('hello', url => console.log(`Returned url is ${url}`));
             socket.on('test', text => console.log(text));
             socket.on('connect', () => {
