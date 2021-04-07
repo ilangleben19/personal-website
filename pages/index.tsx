@@ -75,6 +75,14 @@ export default function Home() {
                 }} type="json+ld" />
             </Head>
 
+            <style jsx global>{`
+                body {
+                    background-image: linear-gradient(90deg, #2b4d82 0, #2890ac 100%);
+                    font-family: 'Barlow', sans-serif;
+                    margin: 0;
+                }
+            `}</style>
+
             {windowSize.width > 991 ? <WideLayout /> : <ThinLayout />}
         </>
     );
