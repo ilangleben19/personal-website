@@ -27,3 +27,7 @@ export function useWindowSize() {
 
     return windowSize;
 }
+
+export function insertSubstring(str: string, index: number, stringToAdd: string) {
+    return str.substring(0, index) + stringToAdd + str.substring(index, str.length);
+}

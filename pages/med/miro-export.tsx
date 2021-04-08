@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import Head from 'next/head';
 
+import downloadjs from 'downloadjs';
+
 import { Button, CircularProgress, Container, Link, Snackbar, TextField, Typography } from '@material-ui/core';
 import MuiAlert from '@material-ui/lab/Alert';
 import { makeStyles } from '@material-ui/core/styles';
@@ -72,7 +74,11 @@ export default function MiroExport() {
                 method: 'POST',
             }
         )
-            .then(res => res.text()).then(text => console.log(text));
+            .then(res => res.text())
+            .then(data => {
+                downloadjs(data, 'miro-image.png', 'image/png');
+                setLoading(false);
+            });
     };
 
     return (
