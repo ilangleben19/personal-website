@@ -34,7 +34,6 @@ export default function MiroExport() {
     const [loading, setLoading] = useState(false);
     const [message, setMessage] = useState('');
     const [open, setOpen] = useState(false);
-    const [steps, setSteps] = useState<string[]>([]);
 
     const classes = useStyles();
 
@@ -42,8 +41,6 @@ export default function MiroExport() {
         if (reason !== 'clickaway')
             setOpen(false);
     };
-
-    const addStep = (step: string) => setSteps(steps => [...steps, step]);
 
     const onSubmit = () => {
         setLoading(true);
@@ -67,7 +64,6 @@ export default function MiroExport() {
 
         const embedUrl = matches[0];
 
-        addStep('Connecting to server...');
         fetch('/api/med/miro-export',
             {
                 body: JSON.stringify({ embedUrl }),
@@ -76,7 +72,7 @@ export default function MiroExport() {
         )
             .then(res => res.text())
             .then(data => {
-                downloadjs(data, 'miro-image.png', 'image/png');
+                downloadjs(data, 'miro-image.svg', 'image/svg+xml');
                 setLoading(false);
             });
     };
@@ -99,7 +95,8 @@ export default function MiroExport() {
                 <Typography variant="h3">High-Res Miro Export</Typography>
 
                 <Typography variant="body1">
-                    For instructions on how to use this, please see <Link href="https://www.notion.so/ianlangleben/High-Res-Miro-Export-bc62ac9e45594f9d91f42cc01956c944" target="_blank">my Notion tutorial</Link>.
+                    This web-based tool produces a high-res <code>.svg</code> image.
+                    For instructions on how to use this, please see <a href="https://www.notion.so/ianlangleben/High-Res-Miro-Export-bc62ac9e45594f9d91f42cc01956c944" target="_blank">my Notion tutorial</a>.
                 </Typography>
 
                 <br /><br />

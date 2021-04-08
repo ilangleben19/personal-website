@@ -2,9 +2,6 @@ import type { NextApiRequest, NextApiResponse } from 'next';
 
 import chrome from 'chrome-aws-lambda';
 import puppeteer from 'puppeteer-core';
-import { svg2png } from 'svg-png-converter';
-import svg2img from 'svg2img';
-import sharp from 'sharp';
 
 export const config = {
     api: {
@@ -36,18 +33,5 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     await page.waitForSelector('#svgContainer > svg'); // Wait for the SVG to load
     const svg = entityString + await page.evaluate(() => document.querySelector('#svgContainer > svg').outerHTML);
 
-    await sharp(Buffer.from(svg)).toBuffer().then(data => {
-        res.end(data);
-    });
-
-    /* svg2img(svg, (err, buffer) => {
-        res.end(buffer);
-    }); */
-
-    /* const png = await svg2png({
-        input: Buffer.from(svg.trim()),
-        encoding: 'buffer',
-        format: 'png',
-    });
-    res.send(png); */
+    res.send(svg);
 };
