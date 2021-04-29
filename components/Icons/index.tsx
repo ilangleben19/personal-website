@@ -1,9 +1,10 @@
 import { ReactNode } from 'react';
 
-import ButtonLink from 'components/ButtonLink';
-import EmailIcon from 'components/EmailIcon';
-import GithubIcon from 'components/GithubIcon';
-import LinkedinIcon from 'components/LinkedinIcon';
+import ButtonLink from '../ButtonLink';
+
+import EmailIcon from './EmailIcon';
+import GithubIcon from './GithubIcon';
+import LinkedinIcon from './LinkedinIcon';
 
 const icons: [string, ReactNode][] = [
     ['https://www.linkedin.com/in/ian-langleben/', <LinkedinIcon />],

@@ -1,16 +1,28 @@
 import Head from 'next/head';
 
+import ButtonLink from 'components/ButtonLink';
 import Icons from 'components/Icons';
 import { useWindowSize } from '../util';
 
 import styles from 'styles/Home.module.scss';
+
+function CVButton() {
+    return (
+        <ButtonLink className={styles.cvButton} href="/Ian Langleben - CV.pdf">
+            CV
+        </ButtonLink>
+    );
+}
 
 function WideLayout() {
     return (
         <div className={`${styles.root} ${styles.row}`}>
             <div className={styles.column}>
                 <h1 className={styles.title}>Ian Langleben</h1>
-                <div className={styles.row}><Icons /></div>
+                <div className={styles.row}>
+                    <Icons />
+                    <CVButton />
+                </div>
             </div>
             <div style={{ width: 30 }} />
             <div>
@@ -38,7 +50,10 @@ function ThinLayout() {
                     width={200}
                 />
                 <h1 className={styles.title}>Ian Langleben</h1>
-                <div className={styles.row}><Icons /></div>
+                <div className={styles.row}>
+                    <Icons />
+                    <CVButton />
+                </div>
             </div>
         </div>
     );
