@@ -1,3 +1,4 @@
+import { Fragment, ReactNode } from 'react';
 import Head from 'next/head';
 
 import ButtonLink from 'components/ButtonLink';
@@ -6,11 +7,31 @@ import { useWindowSize } from '../util';
 
 import styles from 'styles/Home.module.scss';
 
-function CVButton() {
+interface TextButtonProps {
+    children: ReactNode;
+    href: string;
+}
+
+function TextButton(props: TextButtonProps) {
+    const { children, href } = props;
+
     return (
-        <ButtonLink className={styles.cvButton} href="/Ian Langleben - CV.pdf">
-            CV
+        <ButtonLink className={styles.textButton} href={href}>
+            {children}
         </ButtonLink>
+    );
+}
+
+function CVandResumeButtons() {
+    return (
+        <Fragment>
+            <TextButton href="/Ian Langleben - Resume.pdf">
+                Resume
+            </TextButton>
+            <TextButton href="/Ian Langleben - CV.pdf">
+                Full CV
+            </TextButton>
+        </Fragment>
     );
 }
 
@@ -21,7 +42,7 @@ function WideLayout() {
                 <h1 className={styles.title}>Ian Langleben</h1>
                 <div className={styles.row}>
                     <Icons />
-                    <CVButton />
+                    <CVandResumeButtons />
                 </div>
             </div>
             <div style={{ width: 30 }} />
@@ -52,7 +73,7 @@ function ThinLayout() {
                 <h1 className={styles.title}>Ian Langleben</h1>
                 <div className={styles.row}>
                     <Icons />
-                    <CVButton />
+                    <CVandResumeButtons />
                 </div>
             </div>
         </div>
