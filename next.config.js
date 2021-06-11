@@ -26,6 +26,11 @@ module.exports = {
                 destination: 'https://www.notion.so/ianlangleben/4fa24719012346d9a6aa56f5f8ef260e?v=dd805850adb04d4b81916d4687993778',
                 permanent: true,
             },
+            {
+                source: '/shopping-list',
+                destination: 'https://www.notion.so/Shopping-list-ad9a1c5e548b4a1cb6ef8d05c2656d65',
+                permanent: true,
+            },
         ];
     },
 };
