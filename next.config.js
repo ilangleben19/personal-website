@@ -7,6 +7,11 @@ module.exports = {
                 permanent: true,
             },
             {
+                source: '/helpmeian',
+                destination: 'https://www.notion.so/ianlangleben/Stuff-to-know-after-Ian-leaves-camp-d5e433e6b3e943f488eb9f3203ae8c05',
+                permanent: true,
+            },
+            {
                 source: '/it-officer-platform',
                 destination: 'https://www.notion.so/ianlangleben/MSS-IT-Officer-Platform-Ian-Langleben-99b48d024730485c88f42375f569b9dd',
                 permanent: true,
