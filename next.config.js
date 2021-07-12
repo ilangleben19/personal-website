@@ -28,7 +28,7 @@ module.exports = {
             },
             {
                 source: '/shopping-list',
-                destination: 'https://www.notion.so/Shopping-list-ad9a1c5e548b4a1cb6ef8d05c2656d65',
+                destination: 'https://www.notion.so/ianlangleben/Shopping-list-ad9a1c5e548b4a1cb6ef8d05c2656d65',
                 permanent: true,
             },
         ];
