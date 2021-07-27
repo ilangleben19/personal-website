@@ -17,6 +17,21 @@ module.exports = {
                 permanent: true,
             },
             {
+                source: '/med/it-officer',
+                destination: 'https://ianlangleben.notion.site/MSS-IT-Officer-3d9b4b4a5ae2496d9729109a685bd7a0',
+                permanent: true,
+            },
+            {
+                source: '/med/it-officer/platform',
+                destination: 'https://www.notion.so/ianlangleben/MSS-IT-Officer-Platform-Ian-Langleben-99b48d024730485c88f42375f569b9dd',
+                permanent: true,
+            },
+            {
+                source: '/med/it-officer/new-website',
+                destination: 'https://www.notion.so/ianlangleben/d5bc474bf85d45a8807abb8801186b72?v=95ac414ca803459b96402c99efd8cb73',
+                permanent: true,
+            },
+            {
                 source: '/med/it-officer-platform',
                 destination: 'https://www.notion.so/ianlangleben/MSS-IT-Officer-Platform-Ian-Langleben-99b48d024730485c88f42375f569b9dd',
                 permanent: true,
